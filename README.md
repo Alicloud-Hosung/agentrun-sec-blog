@@ -2,7 +2,7 @@
 
 Put a security layer on the **tool side** of an AI agent, so that what the agent can do is enforced by code instead of being left to the model.
 
-This repository is the companion code for the blog post **Does "DO NOT" Work on AI Agents? Securing MCP Tools with AgentRun** ([English](<BLOG_LINK_EN>) / [한국어](<BLOG_LINK_KO>)). It contains a fake support-ticket MCP server, a hook service for Alibaba Cloud AgentRun, deploy and evaluation scripts, and local tests.
+This repository is the companion code for the blog post **Does "DO NOT" Work on AI Agents? Securing MCP Tools with AgentRun** ([English](https://www.alibabacloud.com/blog/603668) / [한국어](https://www.alibabacloud.com/blog/603669)). It contains a fake support-ticket MCP server, a hook service for Alibaba Cloud AgentRun, deploy and evaluation scripts, and local tests.
 
 > **All data is fake.** Do not point this code at real systems or real customer data.
 
