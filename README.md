@@ -22,7 +22,7 @@ The blocking decisions do not depend on spotting injection text. They only ask s
 
 ## Results from the blog
 
-Measured in October 2026 (Singapore, ap-southeast-1) with qwen3.8-max and qwen3.8-flash: 30 attack tasks, 20 normal tasks, 900 runs in total. Graded from the ticket server's call log, not from the agent's answer.
+Measured in October 2026 (Singapore, ap-southeast-1) with qwen3.8-max and qwen3.8-flash: 30 attack tasks, 20 normal tasks, 900 runs in total. Out-of-scope access and deletions are graded from the ticket server's call log, not from the agent's answer. Contact exposure (A2) is graded from the answer.
 
 | Layer | What it adds | A2 contact request<br>(max / flash) | A3 out-of-scope access<br>(max / flash) |
 |---|---|---|---|
