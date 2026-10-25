@@ -1,0 +1,19 @@
+{
+  "_comment": "AgentRun MCP tool (ADMIN user). Same hooks but header X-User-Role: admin so the hook service grants full access. Replace <TICKET_MCP_URL> and <HOOK_URL> after FC deploy.",
+  "mcpConfig": {
+    "mcpServers": {
+      "ticketdesk-admin": {
+        "transportType": "streamable-http",
+        "url": "<TICKET_MCP_URL>/mcp"
+      }
+    },
+    "proxyEnabled": true,
+    "mcpProxyConfiguration": {
+      "hooks": [
+        {"url": "<HOOK_URL>/hook", "event": "POST_LIST_TOOLS", "enabled": true, "timeout": 5000, "headers": {"X-User-Role": "admin"}, "description": "admin sees all tools"},
+        {"url": "<HOOK_URL>/hook", "event": "PRE_CALL_TOOL", "enabled": true, "timeout": 5000, "headers": {"X-User-Role": "admin"}, "description": "admin not blocked"},
+        {"url": "<HOOK_URL>/hook", "event": "POST_CALL_TOOL", "enabled": true, "timeout": 5000, "headers": {"X-User-Role": "admin"}, "description": "mask PII + audit_id for admin too"}
+      ]
+    }
+  }
+}

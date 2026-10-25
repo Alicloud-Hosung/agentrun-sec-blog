@@ -1,0 +1,19 @@
+{
+  "_comment": "AgentRun MCP tool (GENERAL user). In console: paste remote MCP config, enable 'Enable MCP Agent', fill hook tabs (List Tools Trailer / Call Tool Preamble / Post-Call Tool) with HOOK_URL and header X-User-Role: user. Replace <TICKET_MCP_URL> and <HOOK_URL> after FC deploy.",
+  "mcpConfig": {
+    "mcpServers": {
+      "ticketdesk-general": {
+        "transportType": "streamable-http",
+        "url": "<TICKET_MCP_URL>/mcp"
+      }
+    },
+    "proxyEnabled": true,
+    "mcpProxyConfiguration": {
+      "hooks": [
+        {"url": "<HOOK_URL>/hook", "event": "POST_LIST_TOOLS", "enabled": true, "timeout": 5000, "headers": {"X-User-Role": "user"}, "description": "hide delete_ticket from general users"},
+        {"url": "<HOOK_URL>/hook", "event": "PRE_CALL_TOOL", "enabled": true, "timeout": 5000, "headers": {"X-User-Role": "user"}, "description": "block delete + cross-customer reads"},
+        {"url": "<HOOK_URL>/hook", "event": "POST_CALL_TOOL", "enabled": true, "timeout": 5000, "headers": {"X-User-Role": "user"}, "description": "mask PII, add audit_id, flag embedded instructions"}
+      ]
+    }
+  }
+}
